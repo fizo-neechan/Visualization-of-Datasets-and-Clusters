@@ -142,6 +142,10 @@ class Graph:
 
         clusters = []
         newAdjacency = adjacency.copy()
+
+        for i in range(newAdjacency.shape[0]):
+            newAdjacency[i,i] = 0
+
         numClusters = 0
         while(np.max(newAdjacency) != 0):
             
@@ -177,7 +181,7 @@ class Graph:
         """
         
         plt.title(title)
-        nx.draw_circular(graph, with_labels=True)
+        nx.draw(graph, with_labels=True)
         plt.show()
         plt.clf()
 
