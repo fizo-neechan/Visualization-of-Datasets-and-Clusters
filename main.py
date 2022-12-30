@@ -6,9 +6,13 @@ if __name__ == "__main__":
 
 # get file path from user
     filepath = input("enter the filepath of the data file: ")
+    delimiter = input("enter delimiter of data: ")
+
+    if delimiter == '\\t':
+        delimiter = '\t'
 
 # initialize the dataProcessing object
-    d = dataProcessing(filepath)
+    d = dataProcessing(filepath, delimiter)
 
 # visualize the data for task1
     d.VisualizeData()

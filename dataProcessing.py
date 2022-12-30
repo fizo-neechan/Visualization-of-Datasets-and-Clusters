@@ -64,12 +64,15 @@ class dataProcessing :
 
 
 
-    def __init__(self, filename:str) -> None:
+    def __init__(self, filename: str, delim: str = '\t') -> None:
         """Constructor
 
         args:
             filename:str
             filename of the file to get data from
+
+            delim: str = '\t' (default)
+            delimiter of data
 
         returns:
             None
@@ -78,16 +81,20 @@ class dataProcessing :
 
         self.data = 0
         self.rows, self.cols = 0, 0
-        self.__loadData(filename)
+        self.__loadData(filename, delim=delim)
         self.corrMat = self.__getCorrMatrix(self.data)
+        print(self.corrMat.shape)
 
 
-    def __loadData(self, filename: str) -> None:
+    def __loadData(self, filename: str, delim: str) -> None:
         """read and load data into memory from specified file
 
         args:
             filename:str
             name / path for the file to load data from
+
+            delim: str
+            delimiter of data
 
         returns:
             None 
@@ -100,7 +107,7 @@ class dataProcessing :
             file.readline()
 
             data = file.readlines()
-            data = [x.split('\t') for x in data]
+            data = [x.split(delim) for x in data]
             self.data = np.array(data, dtype=np.float64)
 
         return data
@@ -157,7 +164,6 @@ class dataProcessing :
             xc[i] = Mat[i] - x_means[i]
 
         covMat = (xc @ xc.T) / self.rows
-
 
         return covMat
 
