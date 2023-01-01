@@ -15,3 +15,5 @@ In both these tasks, after the dataset has been rearranged into a more readable 
 - Graph
 - Matrix
 
+## Comparing Task 2 and Task 3:
+Task 2 was about recreating the original data from shuffled data using the signature technique and Task 3 was about visualizing the data using clusters in a graph. Although the tasks seem different, they are both about representing the original data using different techniques. In both tasks, we can visualize the overlapping of properties in the data.
